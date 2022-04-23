@@ -1,0 +1,37 @@
+<div class="contenedor-principal">
+	<table class="striped">
+        <thead >
+          <tr class="card-panel teal black">
+            <th colspan="4"><caption style="color:#f8f8f8">Articulos </caption></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td >Inicio</td>
+			<td><input type="date" value="{{ini}}" (change)="CambioFechaIni()" id="fechaIni"></td>
+            <td >Fin</td>
+			<td><input type="date" value="{{fin}}" (change)="CambioFechaFin()" id="fechaFin"></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table class="striped">
+        <tbody>
+          <tr *ngFor="let articulo of articulos; let i=index">
+            <td>{{articulo.fechaEdicion}}</td>
+            <td><b>{{articulo.titulo}} </b>
+				<!-- {{ es para imprimir en pantalla-->
+					<p *ngFor =" let autor of autores[i];">
+						{{autor.nombresP}} <sub>{{autor.pos}}  <a (click)="eliminarAutor(autor,articulo)" class="waves-effect waves-teal btn-flat"><i class="material-icons left">delete</i></a> </sub>
+					</p>
+			</td>
+			<td><a class="waves-effect waves-teal btn-flat"><i class="material-icons left">add</i>UTM</a></td>
+			<td><a class="waves-effect waves-teal btn-flat"><i class="material-icons left">create</i>Prioridad</a></td>
+      <td>
+          <input (change)="eleccionArchivo($event.target)" type="file" multiple="true">
+      </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

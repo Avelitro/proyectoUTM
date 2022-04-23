@@ -1,0 +1,59 @@
+<div class="contenedor-principal">
+  <table class="striped">
+    <thead >
+      <tr class="card-panel teal black">
+        <th colspan="4"><caption style="color:#f8f8f8">Datos Generales </caption></th>
+      </tr>
+    </thead>
+  </table>
+	<table class="highlight">
+        <tbody>
+          <th rowspan="10" ><img src="http://localhost:3000/{{idProfesor}}.jpg" width="200" alt="" height="300"></th>
+          <tr>
+            <td>Nombre(s)</td>
+            <td><input [(ngModel)]='profesor.nombresP' required type="text" placeholder="Nombre(s) del profesor" value="profesor.nombresP"></td>
+          </tr>
+          <tr>
+            <td>Apellido Paterno</td>
+            <td><input [(ngModel)]='profesor.apellidoP' required type="text"  value="profesor.apellidoP"></td>
+          </tr>
+          <tr>
+            <td>Apellido Materno</td>
+            <td><input [(ngModel)]='profesor.apellidoM' required type="text"  value="profesor.apellidoM"></td>
+          </tr>
+          <tr>
+            <td>Nombre APA</td>
+            <td><input [(ngModel)]='profesor.nombreApa' required type="text"  value="profesor.nombreApa"></td>
+          </tr>
+          <tr>
+            <td>Correo</td>
+            <td><input [(ngModel)]='profesor.correoProfesor' required type="text"  value="profesor.correoProfesor"></td>
+          </tr>
+          <tr>
+            <td>Instituto</td>
+            <td>
+                <select class="browser-default" [(ngModel)]='profesor.idInstituto' (change)="cambioInstituto($event.target)">
+                <option [value]="item.idInstituto" *ngFor='let item of institutos' >{{item.nombreInstituto}}</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Carrera</td>
+            <td>
+                <select class="browser-default" [(ngModel)]='profesor.idCarrera' >
+                <option [value]="item.idCarrera" *ngFor='let item of carreras' >{{item.nombreCarrera}}</option>
+                </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Grado</td>
+            <td><input [(ngModel)]='profesor.grado' required type="text"  value="profesor.grado"></td>
+          </tr>
+          <tr>
+            <td><a (click)="modificarProfesor()" class="waves-effect waves-teal btn-flat"><i class="material-icons left">unarchive</i>Guardar</a></td>
+           </tr>
+        </tbody>
+      </table>
+            
+      
+</div>

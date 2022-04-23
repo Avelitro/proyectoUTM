@@ -1,0 +1,113 @@
+<div class="contenedor-principal">
+    <table class="striped">
+      <thead >
+        <tr class="card-panel teal black">
+          <th colspan="4"><caption style="color:#f8f8f8">Profesores</caption></th>
+        </tr>
+      </thead>
+    </table>
+      <div class="row">
+        <div class="col s12">
+            <label>Instituto</label>
+            <select  class="browser-default" (change)="cambioInstituto($event.target)">
+                <ng-container *ngFor='let item of institutos'>
+                <option [value]="item.idInstituto" *ngIf="item.idInstituto!=0">{{item.nombreInstituto}}</option>
+            </ng-container>
+            </select>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="numCarByInst!=0">
+        <div class="col s12">
+            <label>Carreras</label>
+            <select class="browser-default" (change)="cambioCarrera($event.target)">
+                <option [value]="item.idCarrera" *ngFor='let item of carreras'>{{item.nombreCarrera}}</option>
+            </select>
+        </div>
+    </div>
+
+    <table class="striped" *ngIf="numCarByInst!=0">
+        <tbody>
+          <tr *ngFor="let profesor of profesores; let i=index">
+            <td><img src="http://localhost:3000/{{profesor.idProfesor}}.jpg" width="60" alt="" height="80"></td>
+            <td  >{{profesor.nombresP}}</td>
+            <td><a (click)="modificarProfesor(i)" class="waves-effect waves-teal btn-flat"><i class="material-icons left">create</i>Editar</a></td>
+			<td><a (click)="eliminarProfesor(i)" class="waves-effect waves-teal btn-flat"><i class="material-icons left">delete</i>Eliminar</a></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+<!-- Modal para modificar un profesor -->
+<div id="modificarProfesor" class="modal">
+    <div class="modal-content">
+        <div class="row" style="margin-bottom: 0px !important;">
+            <div class="col s12">
+                <h5 class="center">Modificar Profesor</h5>
+            </div>
+        </div>
+        
+        <div style="border: .5px solid #78909c; padding: 10px;">
+            <div class="row">
+                <div class="col s12">
+                    <label >Nombres del profesor</label>
+                    <input [(ngModel)]='profesorActual.nombresP' required type="text" placeholder="Nombre(s)" value="profesorActual.nombresP">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label>Apellido paterno</label>
+                    <input [(ngModel)]='profesorActual.apellidoP' required type="text" placeholder="Apellido paterno" value="profesorActual.apellidoP">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label>Apellido materno</label>
+                    <input [(ngModel)]='profesorActual.apellidoM' required type="text" placeholder="Apellido materno" value="profesorActual.apellidoM">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12"> 
+                    <label>Correo</label>
+                    <input [(ngModel)]='profesorActual.correoProfesor' required type="email" placeholder="Correo" value="profesorActual.apellidoM">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12"> 
+                    <label>Nivel</label>
+                    <input [(ngModel)]='profesorActual.nivel' required type="number" placeholder="Nivel" value="profesorActual.nivel">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label>Grado academico</label>
+                    <input [(ngModel)]='profesorActual.grado' required type="text" placeholder="Grado academico" value="profesorActual.grado">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <label>Tipo de Profesor</label>
+                    <select class="browser-default" [(ngModel)]='profesorActual.idTipoProfesor'>
+                        <option [value]="item.idTipoProfesor" *ngFor='let item of tipoPProfesor' >{{item.nombreTipo}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12"> 
+                    <label>Nombre APA</label>
+                    <input [(ngModel)]='profesorActual.nombreApa' required type="text" placeholder="APA" value="profesorActual.nombreApa">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6 center">
+                    <a (click)="altaModificarProfesor()" class=" modal-action waves-effect waves-green btn-flat" >Enviar</a>
+                </div>
+                <div class="col s6 center">
+                    <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+<app-navigation></app-navigation>
+<router-outlet></router-outlet>
+
+<div class="fixed-action-btn">
+	<a class="btn-floating btn-large red">
+	  <i class="large material-icons">add</i>
+	</a>
+	<ul>
+		<li><a (click)="agregarArticulo()" class="btn-floating blue"><i class="material-icons">border_color</i></a></li>
+	  	<li><a class="btn-floating black"><i class="material-icons">format_quote</i></a></li>
+	  	<li><a class="btn-floating black"><i class="material-icons">publish</i></a></li>
+	  	<li><a class="btn-floating black"><i class="material-icons">attach_file</i></a></li>
+	</ul>
+  </div>
+
+<!-- Modal para agregar un articulo -->
+<div id="agregarArticulo" class="modal">
+	<div class="modal-content">
+		<div class="row" style="margin-bottom: 0px !important;">
+			<div class="col s12">
+				<h5 class="center">Registrar articulo</h5>
+			</div>
+		</div>
+		<div style="border: .5px solid #78909c; padding: 10px;">
+			<div class="row">
+				<div class="col s12">
+					<label>Nombre del articulo</label>
+					<input [(ngModel)]='articulito.titulo'required type="text" placeholder="Titulo" value="articulito.titulo">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Tipo CLR</label>
+					<select class="browser-default" [(ngModel)]="articulito.tipoCLR">
+						<option *ngFor='let item of tipoCLR'>{{item}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>NombreCLR</label>
+					<input [(ngModel)]='articulito.nombreCLR'required type="text" placeholder="NombreCLR" value="articulito.nombreCLR">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Estado del articulo</label>
+					<input [(ngModel)]='articulito.estado'required type="text" placeholder="Estado del aticulo" value="articulito.estado">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Fecha de la edición</label>
+					<input type="date" value="{{fecha}}" (change)="cambioFecha()" id="nuevaFecha">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Volumen del articulo</label>
+					<input [(ngModel)]='articulito.volumen'required type="text" placeholder="Volumen" value="articulito.volumen">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Paginas de su articulo</label>
+					<input [(ngModel)]='articulito.paginas'required type="text" placeholder="Paginas" value="articulito.paginas">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Pais</label>
+					<input [(ngModel)]='articulito.pais'required type="text" placeholder="Pais" value="articulito.pais">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Ciudad</label>
+					<input [(ngModel)]='articulito.ciudad'required type="text" placeholder="Ciudad" value="articulito.ciudad">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>TipoNI</label>
+					<input [(ngModel)]='articulito.tipoNI'required type="text" placeholder="tipoNl" value="articulito.tipoNI">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>ISSNISBN</label>
+					<input [(ngModel)]='articulito.issnisbn'required type="text" placeholder="issnisbn" value="articulito.issnisbn">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Direccion Url</label>
+					<input [(ngModel)]='articulito.doi'required type="text" placeholder="Url" value="articulito.doi">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Comprobante</label>
+					<input [(ngModel)]='articulito.comprobante'required type="text" placeholder="Comprobante" value="articulito.comprobante">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Indexada</label>
+					<select class="browser-default" [(ngModel)]="articulito.indexa">
+						<option *ngFor='let item of indexada'>{{item}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>ISSUE</label>
+					<input [(ngModel)]='articulito.issue'required type="text" placeholder="issue" value="articulito.issue">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Editorial</label>
+					<input [(ngModel)]='articulito.editorial'required type="text" placeholder="Editorial" value="articulito.editorial">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label>Editores</label>
+					<input [(ngModel)]='articulito.editores'required type="text" placeholder="Editores" value="articulito.editores">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s6 center">
+					<a (click)="darAltaArticulo()" class=" modal-action waves-effect waves-green btn-flat" >Enviar</a>
+				</div>
+				<div class="col s6 center">
+					<a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <app-footer></app-footer> -->

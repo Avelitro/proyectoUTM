@@ -1,0 +1,37 @@
+<div class="bodyLogin">
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m12 l8 offset-l2 loginDiv">
+				<div class="row loginContainer">
+					<div class="col s12 m6 l6">
+						<div class="col s11 offset-s1">
+							<img src="assets/img/utm_ova.gif" class="responsive-img" alt="">
+						</div>
+					</div>
+					<div class="col s12 m5 l5 offset-l1 offset-m1">
+						<div class="loginTitulo">
+							<h5>Cambio de Contraseña</h5>
+						</div>
+						<div class="row">
+							<div class="col s12 customInput">
+								<i class="material-icons prefix">vpn_key</i>
+								<input value="{{contra1}}" class="browser-default" type="password"
+                                name="password" id="password1" placeholder="Nueva Contraseña" autocomplete="off">
+							</div>
+							<div class="col s12 customInput">
+								<i class="material-icons prefix">vpn_key</i>
+								<input value="{{contra2}}"  class="browser-default" type="password"
+								name="password" id="password2" placeholder="Confirmar Contraseña" autocomplete="off">
+							</div>
+						</div>
+						<div class="row">
+							<button (click)="contrasenaIguales()" class="btn col l12 s12 m12 btnLogin ">
+								Aceptar
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

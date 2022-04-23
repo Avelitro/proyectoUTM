@@ -1,0 +1,46 @@
+<div class="contenedor-principal">
+    <table class="striped">
+      <thead >
+        <tr class="card-panel teal black">
+          <th colspan="4"><caption style="color:#f8f8f8">Listado de Articulos</caption></th>
+        </tr>
+      </thead>
+    </table>
+      <div class="row">
+        <div class="col s12">
+            <label>Instituto</label>
+            <select  class="browser-default" (change)="cambioInstituto($event.target)">
+                <ng-container *ngFor='let item of institutos'>
+                <option [value]="item.idInstituto" *ngIf="item.idInstituto!=0">{{item.nombreInstituto}}</option>
+            </ng-container>
+            </select>
+        </div>
+    </div>
+
+    <table class="striped">
+        <thead >
+            <tr class="card-panel teal gren">
+              <th ><caption style="color:#f8f8f8">Titulo del articulo</caption></th>
+              <th ><caption style="color:#f8f8f8">Tipo de articulo</caption></th>
+              <th ><caption style="color:#f8f8f8">Nombre CLR</caption></th>
+              <th ><caption style="color:#f8f8f8">Estado del articulo</caption></th>
+            </tr>
+          </thead>
+        <tbody>
+          <tr *ngFor="let articulo of articulos | paginate:{itemsPerPage:pageSize,
+            currentPage:p}; let i=index" (change)="cambioInstituto($event.target)">
+            <td >{{articulo.titulo}}</td>
+            <td >{{articulo.tipoCLR}}</td>
+            <td >{{articulo.nombreCLR}}</td>
+            <td >{{articulo.estado}}</td>
+            
+           </tr>
+        </tbody>
+    </table>
+  </div>
+  <pagination-controls 
+                      (pageChange)="p=($event)"
+                      previousLabel="Anterior"
+                      nextLabel="Siguiente"
+                      class="center">
+</pagination-controls>
